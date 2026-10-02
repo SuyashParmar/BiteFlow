@@ -1,0 +1,48 @@
+name: BiteFlow
+options:
+  bundleIdPrefix: com.suyashparmar
+  deploymentTarget:
+    iOS: 16.0
+targets:
+  BiteFlow:
+    type: application
+    platform: iOS
+    deploymentTarget: 16.0
+    sources:
+      - path: BiteFlow
+    info:
+      path: BiteFlow/Info.plist
+      properties:
+        UILaunchStoryboardName: LaunchScreen
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+          UISceneConfigurations:
+            UIWindowSceneSessionRoleApplication:
+              - UISceneConfigurationName: Default Configuration
+                UISceneDelegateClassName: $(PRODUCT_MODULE_NAME).SceneDelegate
+    settings:
+      base:
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        SWIFT_VERSION: 5.0
+        CODE_SIGN_STYLE: Automatic
+  BiteFlowTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: BiteFlowTests
+    dependencies:
+      - target: BiteFlow
+    settings:
+      base:
+        SWIFT_VERSION: 5.0
+  BiteFlowUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: BiteFlowUITests
+    dependencies:
+      - target: BiteFlow
+    settings:
+      base:
+        SWIFT_VERSION: 5.0
